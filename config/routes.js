@@ -40,7 +40,7 @@ module.exports.routes = {
   },
   'GET /api/auth/logout' :{
     controller: 'AuthController',
-    action: 'process'
+    action: 'logout'
   },
   "GET *":{
     controller:"PagesController",
