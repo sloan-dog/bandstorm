@@ -31,8 +31,23 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
-
-  'get /':'PagesController.homePage'
+  '/': {
+    view: 'homepage'
+  },
+  'POST /api/auth/login': {
+    controller: 'AuthController',
+    action: 'process'
+  },
+  'GET /api/auth/logout' :{
+    controller: 'AuthController',
+    action: 'process'
+  },
+  "GET *":{
+    controller:"PagesController",
+    action:"homePage",
+    skipAssets: true,
+    skipRegex: /^\/api\/.*$/
+  },
 
   /***************************************************************************
   *                                                                          *
