@@ -14,7 +14,7 @@ module.exports = {
             name:name,
             description:description
         }).then(function(project){
-            User.findOne({where: {id:userId}).then(function(user){
+            User.findOne({where: {id:userId}}).then(function(user){
                 project.users.add(user);
                 user.projects.add(project);
                 user.save();
@@ -31,7 +31,28 @@ module.exports = {
             })
             .catch(console.error);
         });
+    },
+    showOne: function(req,res){
+        var userId = req.params.userId;
+        var projectId = req.params.projectId;
+        Project.findOne({where:{id:projectId}}).populate('users')
+        .then(function(project){
+            console.log(project);
+            res.send(project);
+        }).catch(function(err){
+            res.send(400,err);
+        })
+    },
+    showAll: function(req,res){
+        var userId = req.params.userId;
+        User.findOne({where:{id:userId}}).populate('projects')
+        .then(function(user){
+            res.send(user);
+        }).catch(function(err){
+            res.send(400,err);
+        })
     }
+
 
 };
 

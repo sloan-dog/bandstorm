@@ -31,6 +31,14 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
+  'GET /api/user/:userId/project/:projectId': {
+    controller: 'ProjectController',
+    action: 'showOne'
+  },
+  'GET /api/user/:userId/projects' : {
+    controller:'ProjectController',
+    action: 'showAll'
+  },
   'POST /api/song/create': {
     controller: 'SongController',
     action: 'create'
