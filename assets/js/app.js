@@ -30,7 +30,7 @@ BandStormApp.config(['$routeProvider','$locationProvider', function($routeProvid
     templateUrl: '/views/projects.html',
     controller: 'ProjectCtrl'
   })
-  .when('/project/',{
+  .when('/projects/:user_id/project/:id',{
     templateUrl: '/views/project.html',
     controller: 'ProjectCtrl'
   })
