@@ -14,9 +14,9 @@ module.exports = {
         collection: 'song',
         via: 'project'
     },
-    user: {
+    users: {
         collection: 'user',
-        via: 'project'
+        via: 'projects'
     }
   }
 };

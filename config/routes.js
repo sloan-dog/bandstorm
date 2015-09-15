@@ -34,6 +34,10 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
+  'POST /api/song/create': {
+    controller: 'SongController',
+    action: 'create'
+  },
   'POST /api/auth/login': {
     controller: 'AuthController',
     action: 'process'

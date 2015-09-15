@@ -26,9 +26,9 @@ module.exports = {
         via: 'user',
         dominant: true
     },
-    project: {
+    projects: {
         collection: 'project',
-        via: 'user',
+        via: 'users',
         dominant: true
     },
     toJSON: function(){
