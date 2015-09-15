@@ -11,9 +11,23 @@ module.exports = {
         });
     },
     addProject: function(req,res){
-        // User.findOne({where:{id:req.body.userId}}).then(function(user){
-        //     User.add
-        // })
+        User.findOne({where:{id:req.body.userId}}).then(function(user){
+            Project.findOne({where:{id:req.body.projectId}}).then(function(project){
+                user.projects.add(project);
+                return user.save();
+            }).then(function(){
+                User.findOne({id:req.body.userId}).populate('projects')
+                .then(function(user){
+                    console.log(user);
+                    res.send(user);
+                }).catch(function(err){
+                    res.send(400,err);
+                })
+            })
+            .catch(function(err){
+            res.send(400, err);
+            });
+        })
     }
 };
 
