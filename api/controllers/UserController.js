@@ -9,6 +9,11 @@ module.exports = {
         }).catch(function(err){
             res.send(400, err);
         });
+    },
+    addProject: function(req,res){
+        // User.findOne({where:{id:req.body.userId}}).then(function(user){
+        //     User.add
+        // })
     }
 };
 

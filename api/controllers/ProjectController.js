@@ -12,10 +12,25 @@ module.exports = {
         Project.create({
             name:name,
             description:description
-        }).then(function(err,project){
-            if(err){return console.log(err);}
-            project.users.add(req.session.user);
-            project.save(function(err){})
+        }).then(function(project){
+            User.findOne({where: {id:'55f60c501098a28e72d6517a'}}).then(function(user){
+                project.users.add(user);
+                user.projects.add(project);
+                user.save();
+                return project.save();
+            }).then(function(){
+                return Project.find({
+                    where:{
+                        name:{
+                            contains: 'email'
+                        }
+                    }
+                }).populate('users');
+            }).then(function(project){
+                console.log(project.id)
+                res.send(project);
+            })
+            .catch(console.error);
         });
     }
 
