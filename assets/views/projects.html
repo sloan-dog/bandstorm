@@ -3,7 +3,7 @@
     <div class="well project-view-outer btn-info active">
       <div class="well project-view-inner">
         <table class="table table-hover">
-          <legend>UserNames's Projects <a href="/project/new" class="btn btn-success glyphicon glyphicon-plus no-link-decoration pull-right"></a></legend>
+          <legend>{{currentUser.name}}'s Projects <a href="/project/new" class="btn-sm btn-success glyphicon glyphicon-plus no-link-decoration pull-right"><md-tooltip>Create a New Project</md-tooltip></a><i ng-click="helpModal()" class="btn-sm btn-warning glyphicon glyphicon-question-sign no-link-decoration pull-right"><md-tooltip>Help</md-tooltip></i></legend>
           <thead>
             <tr>
               <th><b>Project Name:</b></th>

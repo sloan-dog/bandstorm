@@ -35,6 +35,10 @@ module.exports.routes = {
     controller: 'SongController',
     action: 'create'
   },
+  'GET /api/auth/': {
+    controller:'AuthController',
+    action:'check'
+  },
   'POST /api/auth/login': {
     controller: 'AuthController',
     action: 'process'

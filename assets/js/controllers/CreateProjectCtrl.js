@@ -1,6 +1,11 @@
-BandStormApp.controller('CreateProjectCtrl', ['$scope','$mdDialog', 'FileUploader', function($scope,$mdDialog, FileUploader) {
+BandStormApp.controller('CreateProjectCtrl', ['$scope','$mdDialog', 'FileUploader', 'UserService',function($scope,$mdDialog, FileUploader,UserService) {
   var uploader = $scope.uploader = new FileUploader({
       url: '/api/song/create'
+  });
+
+  $scope.UserService = UserService;
+  $scope.$watchCollection('UserService', function(){
+    $scope.currentUser = UserService.currentUser;
   });
 
   $scope.closeModal = function() {
