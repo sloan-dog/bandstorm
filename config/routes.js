@@ -36,7 +36,7 @@ module.exports.routes = {
     action: 'showOne'
   },
   'GET /api/user/:userId/projects' : {
-    controller:'ProjectController',
+    controller: 'ProjectController',
     action: 'showAll'
   },
   'POST /api/song/create': {

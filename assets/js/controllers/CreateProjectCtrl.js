@@ -21,8 +21,9 @@ BandStormApp.controller('CreateProjectCtrl', ['$scope','$mdDialog', '$http', '$l
       name:$scope.newProject.name,
       description:$scope.newProject.description
     }).success(function(data){
-      $location.path('/projects/'+data[0].users[0].id+'/project/'+data[0].id)
+      // console.log(data);
       console.log('project created',data)
+      $location.path('/projects/'+ data.users[0].id+'/project/'+data.id)
     }).error(console.log('fuck'))
   };
 
