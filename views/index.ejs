@@ -1,1 +1,15 @@
-<h1>Hi.</h1>
+<div ng-app="BandStormApp">
+  <div class="row">
+      <div class="col-md-12">
+        <div class="nav-bar nav btn-info active">
+            <md-button class="list-group-item pull-left brand"><a href="/" class="no-link-decoration"><i class="glyphicon glyphicon-home"></i>&nbsp;<big>B</big><small>and</small><big>S</big><small>torm</small></a></md-button>
+          <ul class="list-group" ng-controller="AuthCtrl">
+            <md-button class="list-group-item pull-right btn btn-info"><a class="no-link-decoration" href="/project">Project</a><md-tooltip>Go to Project View</md-tooltip></md-button>
+            <md-button ng-click="logInModal()" class="list-group-item pull-right btn btn-info"><b>Login<md-tooltip>Go to Login Page</b></md-tooltip></md-button>
+            <md-button ng-click="signUpModal()" class="list-group-item pull-right btn btn-info"><b>Signup<md-tooltip>Go to Signup Page</b></md-tooltip></md-button>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <ng-view></ng-view>
+</div>

@@ -32,7 +32,14 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'get /':'PagesController.homePage'
+  'get /':'PagesController.homePage',
+
+  "get *":{
+    controller:"PagesController",
+    action:"homePage",
+    skipAssets: true,
+    skipRegex: /^\/api\/.*$/
+  }
 
   /***************************************************************************
   *                                                                          *
