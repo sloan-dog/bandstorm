@@ -37,7 +37,7 @@ module.exports = {
                 var description = results.textParams.description;
                 var version = results.textParams.version;
                 if(req.body.branch) var branch = results.textParams.branch;
-                var userId = req.session.user;
+                var userId = req.user.id;
                 var s3url = results.files[0].extra.Location;
                 var project = results.textParams.project;
                 Song.create({
