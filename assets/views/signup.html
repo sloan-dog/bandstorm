@@ -14,7 +14,7 @@
           <label>Password</label>
           <input type="password" ng-model="newUser.password">
         </md-input-container>
-        <md-button type="submit" class="btn btn-info">Create Account</md-button>
+        <md-button type="submit" ng-click="signUp()" class="btn btn-info">Create Account</md-button>
         <md-button ng-click="closeModal()" class="btn btn-danger">Close</md-button>
       </form>
   </md-dialog-content>

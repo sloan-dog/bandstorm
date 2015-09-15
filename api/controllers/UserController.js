@@ -5,7 +5,7 @@ module.exports = {
         var name = req.body.name;
         User.create({password:password,email:email,name:name})
         .then(function(user){
-            return res.send(user.email + ' ' + user.password);
+            return res.send(user);
         }).catch(function(err){
             res.send(400, err);
         });
