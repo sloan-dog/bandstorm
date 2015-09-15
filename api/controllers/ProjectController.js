@@ -7,14 +7,17 @@
 
 module.exports = {
     create: function(req,res){
-        var userId = req.user.id
+        var userId = req.user.id;
         var name = req.body.name;
         var description = req.body.description;
+        console.log(userId);
         Project.create({
             name:name,
             description:description
         }).then(function(project){
             User.findOne({where: {id:userId}}).then(function(user){
+                console.log('user:',user);
+                console.log('project:',project)
                 project.users.add(user);
                 user.projects.add(project);
                 user.save();

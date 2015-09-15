@@ -1,7 +1,5 @@
-BandStormApp.controller('CreateProjectCtrl', ['$scope','$mdDialog', 'FileUploader', 'UserService',function($scope,$mdDialog, FileUploader,UserService) {
-  var uploader = $scope.uploader = new FileUploader({
-      url: '/api/song/create'
-  });
+BandStormApp.controller('CreateProjectCtrl', ['$scope','$mdDialog', '$http', '$location','FileUploader', 'UserService',function($scope,$mdDialog,$http,$location,FileUploader,UserService) {
+  console.log('create project');
 
   $scope.UserService = UserService;
   $scope.$watchCollection('UserService', function(){
@@ -12,46 +10,20 @@ BandStormApp.controller('CreateProjectCtrl', ['$scope','$mdDialog', 'FileUploade
     $mdDialog.hide();
   }
 
-  uploader.filters.push({
-      name: 'customFilter',
-      fn: function(item /*{File|FileLikeObject}*/, options) {
-          return this.queue.length < 10;
-      }
-  });
+  $scope.newProject = {
+    name:'',
+    description:''
+  }
 
-  uploader.onWhenAddingFileFailed = function(item /*{File|FileLikeObject}*/, filter, options) {
-      console.info('onWhenAddingFileFailed', item, filter, options);
-  };
-  uploader.onAfterAddingFile = function(fileItem) {
-      console.info('onAfterAddingFile', fileItem);
-  };
-  uploader.onAfterAddingAll = function(addedFileItems) {
-      console.info('onAfterAddingAll', addedFileItems);
-  };
-  uploader.onBeforeUploadItem = function(item) {
-      console.info('onBeforeUploadItem', item);
-  };
-  uploader.onProgressItem = function(fileItem, progress) {
-      console.info('onProgressItem', fileItem, progress);
-  };
-  uploader.onProgressAll = function(progress) {
-      console.info('onProgressAll', progress);
-  };
-  uploader.onSuccessItem = function(fileItem, response, status, headers) {
-      console.info('onSuccessItem', fileItem, response, status, headers);
-  };
-  uploader.onErrorItem = function(fileItem, response, status, headers) {
-      console.info('onErrorItem', fileItem, response, status, headers);
-  };
-  uploader.onCancelItem = function(fileItem, response, status, headers) {
-      console.info('onCancelItem', fileItem, response, status, headers);
-  };
-  uploader.onCompleteItem = function(fileItem, response, status, headers) {
-      console.info('onCompleteItem', fileItem, response, status, headers);
-  };
-  uploader.onCompleteAll = function() {
-      console.info('onCompleteAll');
+  $scope.createProject = function(){
+    console.log('fired createProject');
+    $http.post('api/project/create',{
+      name:$scope.newProject.name,
+      description:$scope.newProject.description
+    }).success(function(data){
+      $location.path('/projects/'+data[0].users[0].id+'/project/'+data[0].id)
+      console.log('project created',data)
+    }).error(console.log('fuck'))
   };
 
-  console.info('uploader', uploader);
 }]);
