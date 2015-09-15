@@ -7,23 +7,22 @@
 
 module.exports = {
     create: function(req,res){
+        var userId = req.user.id
         var name = req.body.name;
         var description = req.body.description;
         Project.create({
             name:name,
             description:description
         }).then(function(project){
-            User.findOne({where: {id:'55f60c501098a28e72d6517a'}}).then(function(user){
+            User.findOne({where: {id:userId}).then(function(user){
                 project.users.add(user);
                 user.projects.add(project);
                 user.save();
                 return project.save();
             }).then(function(){
-                return Project.find({
+                return Project.findOne({
                     where:{
-                        name:{
-                            contains: 'email'
-                        }
+                        name:name
                     }
                 }).populate('users');
             }).then(function(project){
