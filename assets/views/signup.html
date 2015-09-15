@@ -1,0 +1,21 @@
+<md-dialog class="row" flex="33">
+  <md-dialog-content class="btn-info active col-md-12">
+      <h2 class="btn-info active text-center">Create your BandStorm Account</h2>
+      <form class="well" ng-submit="signUp()">
+        <md-input-container>
+          <label>Username</label>
+          <input type="text" ng-model="newUser.name">
+        </md-input-container>
+        <md-input-container>
+          <label>Email</label>
+          <input type="text" ng-model="newUser.email">
+        </md-input-container>
+        <md-input-container>
+          <label>Password</label>
+          <input type="password" ng-model="newUser.password">
+        </md-input-container>
+        <md-button type="submit" class="btn btn-info">Create Account</md-button>
+        <md-button ng-click="closeModal()" class="btn btn-danger">Close</md-button>
+      </form>
+  </md-dialog-content>
+</md-dialog>

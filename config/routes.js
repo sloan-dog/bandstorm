@@ -31,9 +31,6 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
-  '/': {
-    view: 'homepage'
-  },
   'POST /api/song/create': {
     controller: 'SongController',
     action: 'create'
@@ -46,7 +43,10 @@ module.exports.routes = {
     controller: 'AuthController',
     action: 'logout'
   },
-  "GET *":{
+
+  'get /':'PagesController.homePage',
+
+  "get *":{
     controller:"PagesController",
     action:"homePage",
     skipAssets: true,
