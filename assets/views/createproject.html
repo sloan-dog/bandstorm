@@ -1,12 +1,22 @@
 <div class="well btn-info active">
       <form class="well" ng-submit="createProject()">
+      <input type="hidden" name="user" value="{{currentUser.id}}">
+      <input type="hidden" name="song.version" value="1">
+
+      <!-- for development -->
+      current user id ={{currentUser.id}}
+      <!-- delete for production -->
         <md-input-container>
           <label>Project Title</label>
-          <input type="text" ng-model="song.name">
+          <input type="text" ng-model="song.project">
         </md-input-container>
         <md-input-container>
           <label>Description</label>
           <input type="text" ng-model="song.description">
+        </md-input-container>
+        <md-input-container>
+          <label>Song Name</label>
+          <input type="text" ng-model="song.name">
         </md-input-container>
         <div class="">
           <div class="">
