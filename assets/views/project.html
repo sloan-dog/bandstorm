@@ -2,9 +2,11 @@
   <div class="col-md-3">
     <div class="well project-view-outer btn-info active">
       <div class="well project-view-inner">
-        <h1>Project Name <i ng-click="addSongModal()" class="pull-right btn-sm btn-success glyphicon glyphicon-plus"><md-tooltip>Add a Song</md-tooltip></i></h1>
+        <h1>{{project[0].name}} <i ng-click="addSongModal()" class="pull-right btn-sm btn-success glyphicon glyphicon-plus"><md-tooltip>Add a Song</md-tooltip></i></h1>
         <ul>
-          <li>ng-repeat here</li>
+          <!-- <li ng-repeat="item in projects.projects track by $index">
+            <a href="">{{item.name}}</a>
+          </li> -->
         </ul>
       </div>
     </div>
