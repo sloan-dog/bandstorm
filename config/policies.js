@@ -27,6 +27,9 @@ module.exports.policies = {
   ***************************************************************************/
 
   // '*': true,
+  PagesController: {
+    'homePage': true
+  },
 
   UserController: {
     'create':true,

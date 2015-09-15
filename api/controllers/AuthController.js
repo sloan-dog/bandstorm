@@ -31,5 +31,9 @@ module.exports = {
     logout: function(req,res) {
         req.logout();
         res.send('logout succesful');
+    },
+    check: function(req,res) {
+        res.send({user: req.user})
     }
+
 };

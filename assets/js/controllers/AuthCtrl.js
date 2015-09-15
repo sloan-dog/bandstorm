@@ -1,8 +1,19 @@
-BandStormApp.controller('AuthCtrl', ['$scope','$mdDialog','$http', function($scope,$mdDialog,$http){
+BandStormApp.controller('AuthCtrl', ['$scope','$mdDialog','$http','UserService', function($scope,$mdDialog,$http,UserService){
   console.log('AuthCtrl init')
+
+  $scope.UserService = UserService;
+  $scope.$watchCollection('UserService', function(){
+    $scope.currentUser = UserService.currentUser;
+  });
+
 
   $scope.newUser = {
     name: '',
+    email:'',
+    password:''
+  }
+
+  $scope.user = {
     email:'',
     password:''
   }
@@ -23,8 +34,23 @@ BandStormApp.controller('AuthCtrl', ['$scope','$mdDialog','$http', function($sco
     });
   }
 
-  $scope.logIn = function(){
+  $scope.logOut = function(){
+    UserService.logout()
+  }
 
+  $scope.logIn = function(callback){
+    UserService.login($scope.user.email, $scope.user.password, function(err,data){
+      if (err) {
+        console.log(err);
+        alert('Something terrible has happened.')
+      } else if (data) {
+        console.log(data)
+        $scope.closeModal();
+      } else {
+        console.log(data);
+        alert('Unable to Kenny.')
+      }
+    });
   }
 
   $scope.signUp = function(callback){

@@ -1,15 +1,18 @@
-BandStormApp.factory('UserService', ['$http', function($http){
+BandStormApp.factory('UserService', ['$http','$location', function($http,$location){
   return {
     login: function(email,password,callback){
       var self = this;
-      $http.post('/api/auth',{
+      $http.post('/api/auth/login',{
         name:name,
         email:email,
         password:password
       }).success(function(data){
-        if(data && data.result && data.user) {
+        if(data) {
           self.currentUser = data.user;
+          $location.path('/projects/'+data.user.id)
+          console.log('this -',data.user)
         }else{
+          console.log('else')
           self.currentUser = false;
         }
         callback(null, data);
@@ -19,8 +22,9 @@ BandStormApp.factory('UserService', ['$http', function($http){
       // alert('2')
       var self = this;
 
-      $http.get('/api/auth').success(function(data){
-        if(data && data.user) {
+      $http.get('/api/auth/').success(function(data){
+        if(data) {
+          console.log(data)
           self.currentUser = data.user;
         }else{
           self.currentUser = false;
@@ -33,7 +37,8 @@ BandStormApp.factory('UserService', ['$http', function($http){
       // alert('3')
       this.currentUser = false;
 
-      $http.delete('/api/auth').success(function(data){
+      $http.get('/api/auth/logout').success(function(data){
+        $location.path('/')
         callback(null,data)
       }).error(callback)
 
