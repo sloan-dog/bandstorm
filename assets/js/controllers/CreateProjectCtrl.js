@@ -1,7 +1,11 @@
-BandStormApp.controller('CreateProjectCtrl', ['$scope', 'FileUploader', function($scope, FileUploader) {
+BandStormApp.controller('CreateProjectCtrl', ['$scope','$mdDialog', 'FileUploader', function($scope,$mdDialog, FileUploader) {
   var uploader = $scope.uploader = new FileUploader({
-      url: 'upload.php'
+      url: '/api/song/create'
   });
+
+  $scope.closeModal = function() {
+    $mdDialog.hide();
+  }
 
   uploader.filters.push({
       name: 'customFilter',

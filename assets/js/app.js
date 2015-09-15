@@ -15,6 +15,10 @@ BandStormApp.config(['$routeProvider','$locationProvider', function($routeProvid
     templateUrl: '/views/home.html',
     controller: 'HomeCtrl'
   })
+  .when('/projects',{
+    templateUrl: '/views/projects.html',
+    controller: 'ProjectCtrl'
+  })
   .when('/project',{
     templateUrl: '/views/project.html',
     controller: 'ProjectCtrl'
