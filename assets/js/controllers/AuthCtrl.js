@@ -1,4 +1,4 @@
-BandStormApp.controller('AuthCtrl', ['$scope','$mdDialog', function($scope,$mdDialog){
+BandStormApp.controller('AuthCtrl', ['$scope','$mdDialog','$http', function($scope,$mdDialog,$http){
   console.log('AuthCtrl init')
 
   $scope.newUser = {
@@ -27,8 +27,16 @@ BandStormApp.controller('AuthCtrl', ['$scope','$mdDialog', function($scope,$mdDi
 
   }
 
-  $scope.signUp = function(){
-
+  $scope.signUp = function(callback){
+    var newUser = $scope.newUser
+    $http.post('/api/user/create',{
+      name:newUser.name,
+      email:newUser.email,
+      password:newUser.password
+    }).success(function(data){
+      console.log(data);
+      callback(null,data);
+    }).error(console.log);
   }
 
   $scope.closeModal = function() {
