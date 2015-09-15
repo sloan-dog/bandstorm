@@ -64,3 +64,10 @@
   width: 15%;
   height: 10%;
 }
+body{
+  background-image: url('http://images.wisegeek.com/audio-mixer-knobs.jpg');
+  background-size: 100% 100%;
+}
+.opaque{
+  opacity: 0.5;
+}
