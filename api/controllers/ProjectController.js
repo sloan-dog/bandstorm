@@ -37,7 +37,7 @@ module.exports = {
     },
     showOne: function(req,res){
         var projectId = req.params.projectId;
-        Project.findOne({where:{id:projectId}}).populate('users').populate('songs');
+        Project.findOne({where:{id:projectId}}).populate('users').populate('songs')
         .then(function(project){
             console.log(project);
             res.send(project);
