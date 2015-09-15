@@ -1,10 +1,14 @@
-BandStormApp.controller('ProjectCtrl', ['$scope', '$mdDialog', 'FileUploader','UserService', function($scope,$mdDialog,FileUploader,UserService){
+BandStormApp.controller('ProjectCtrl', ['$scope', '$mdDialog', '$http', '$routeParams','FileUploader','UserService', function($scope,$mdDialog,$http,$routeParams,FileUploader,UserService){
   console.log('ProjectCtrl init')
+
+  $scope.orderField = 'name';
 
   $scope.UserService = UserService;
   $scope.$watchCollection('UserService', function(){
     $scope.currentUser = UserService.currentUser;
   });
+
+  console.log(UserService.currentUser.id)
 
   $scope.addSongModal = function($event) {
     $mdDialog.show({
@@ -27,5 +31,19 @@ BandStormApp.controller('ProjectCtrl', ['$scope', '$mdDialog', 'FileUploader','U
           alert = undefined;
         });
   }
+
+  $scope.projects = {};
+
+  $http.get('/api/user/'+UserService.currentUser.id+'/projects')
+  .success(function(data){
+    $scope.projects = data;
+  })
+  if($routeParams.id){
+    $http.get('/api/user/'+UserService.currentUser.id+'/projects/'+$routeParams.id)
+    .success(function(data){
+      $scope.project = data;
+    })
+  }
+
 
 }]);
