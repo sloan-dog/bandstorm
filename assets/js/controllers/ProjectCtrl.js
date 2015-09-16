@@ -42,12 +42,20 @@ BandStormApp.controller('ProjectCtrl', ['$scope', '$mdDialog', '$http', '$routeP
   .success(function(data){
     $scope.projects = data;
   })
-  if($routeParams.id){
-    $http.get('/api/user/'+UserService.currentUser.id+'/projects/'+$routeParams.id)
+
+
+  // if(typeof UserService.currentUser.id !== undefined || null || ''){
+  //   $http.get('/api/user/'+UserService.currentUser.id+'/projects/'+$routeParams.id)
+  //   .success(function(data){
+  //     $scope.project = data;
+  //   })
+  // }
+console.log('/api/user/'+UserService.currentUser.id+'/songs')
+if(typeof UserService.currentUser.id !== undefined || null || ''){
+    $http.get('/api/user/'+UserService.currentUser.id+'/songs')
     .success(function(data){
       $scope.project = data;
     })
   }
-
 
 }]);

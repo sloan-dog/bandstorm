@@ -1,4 +1,4 @@
-BandStormApp.controller('AuthCtrl', ['$scope','$mdDialog','$http','UserService', function($scope,$mdDialog,$http,UserService){
+BandStormApp.controller('AuthCtrl', ['$scope','$mdDialog','$http','$location','UserService', function($scope,$mdDialog,$http,$location,UserService){
   console.log('AuthCtrl init')
 
   $scope.UserService = UserService;
@@ -36,6 +36,7 @@ BandStormApp.controller('AuthCtrl', ['$scope','$mdDialog','$http','UserService',
 
   $scope.logOut = function(){
     UserService.logout()
+    $location.path('/')
   }
 
   $scope.logIn = function(callback){

@@ -24,7 +24,7 @@ module.exports = {
             model: 'user'
         },
         project: {
-            model: 'project',
+            model: 'Project',
             // required: true
         },
         s3url: {type:'string',required:true},

@@ -1,5 +1,5 @@
 *{
-  /*transition:all .1s ease;*/
+
   -webkit-touch-callout: none;
    -webkit-user-select: none;
    -khtml-user-select: none;
@@ -9,6 +9,11 @@
 }
 .brand{
   font-size: 2em;
+  position: absolute;
+  top: 5px;
+}
+.navigators{
+  background-color: #FFD936;
 }
 .project-view-inner{
   height:100%;
@@ -40,29 +45,28 @@
   height:auto;
   margin:0;
   padding:0;
+  animation: zoomInDown 2s, fadeIn 2s, pulse .5s;
+
 }
 .home-view-outer{
   height:auto;
   margin:0;
   padding:0;
+  animation: zoomInDown 1s, fadeIn 2s;
+
 }
 .shower{
-  animation: fadeInDown 0.5s;
+  animation: jello .8s, fadeIn 2s;
 
 }
 .nav{
   margin-bottom: 15px;
   padding: 2px;
+  animation: zoomInDown 0.5s, fadeIn 2s;
+
 }
 .info-well{
   font-size: 1.2em;
-}
-.my-drop-zone{
-  /*padding: 50px;*/
-  text-align: center;
-  border:dotted 2px rgba(0,0,0,0.1);
-  width: 15%;
-  height: 10%;
 }
 body{
   background-image: url('http://images.wisegeek.com/audio-mixer-knobs.jpg');
@@ -71,3 +75,14 @@ body{
 .opaque{
   opacity: 0.5;
 }
+.logo{
+  color: #FFD936;
+}
+
+
+
+
+
+
+
+

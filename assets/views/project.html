@@ -2,11 +2,11 @@
   <div class="col-md-3">
     <div class="well project-view-outer btn-info active">
       <div class="well project-view-inner">
-        <h1>{{project[0].name}} <i ng-click="addSongModal()" class="pull-right btn-sm btn-success glyphicon glyphicon-plus"><md-tooltip>Add a Song</md-tooltip></i></h1>
+        <h1>{{project[0].name}}<i ng-click="addSongModal()" class="pull-right btn-sm btn-success glyphicon glyphicon-plus"><md-tooltip>Add a Song</md-tooltip></i></h1>
         <ul>
-          <!-- <li ng-repeat="item in projects.projects track by $index">
+          <li ng-repeat="item in project track by $index">
             <a href="">{{item.name}}</a>
-          </li> -->
+          </li>
         </ul>
       </div>
     </div>
@@ -14,7 +14,10 @@
   <div class="col-md-9">
     <div class="well file-view-outer btn-info active">
       <div class="well file-view-inner text-center">
-        <h1>Show Area</h1>
+        <li ng-repeat="(key, value) in project[0]">{{key}}: {{value}}</li>
+
+
+        <audio controls ng-src="{{project[0].s3url | trustUrl}}"></audio>
       </div>
     </div>
   </div>
