@@ -3,19 +3,20 @@
         <form ng-submit="addSong()">
             <div class="well">
                 <label>Song Title:</label>
-                <input type="text" ng-model="newSong.name"><br>
+                <input type="text" ng-model="titleText"><br>
             </div>
             <div class="well">
                 <label>Song Description:</label>
-                <input type="text" ng-model="newSong.description"><br>
+                <input type="text" ng-model="descriptionText"><br>
             </div>
             <div class="well">
                 <label>Version Number:</label>
-                <input name="version" type="text" ng-model="newSong.version"><br>
+                <input name="version" type="text" ng-model="versionText"><br>
             </div>
             <div class="well">
                 <label>File:</label>
-                <input type="file" fileread="vm.uploadme">
+                <!-- <input type="file" fileread="vm.uploadme"> -->
+                <file-field ng-model="uploadFile">Add File</file-field>
             </div>
             <button type="submit" class="btn btn-success">Submit</button>
         </form>
