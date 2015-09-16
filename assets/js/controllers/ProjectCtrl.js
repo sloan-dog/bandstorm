@@ -8,6 +8,9 @@ BandStormApp.controller('ProjectCtrl', ['$scope', '$mdDialog', '$http', '$routeP
     $scope.currentUser = UserService.currentUser;
   });
 
+  // $scope.currentProjectName = $routeParams.id
+  $scope.currentProjectId = ''+$routeParams.id
+
   console.log(UserService.currentUser.id)
 
   $scope.addSongModal = function($event) {
@@ -38,6 +41,7 @@ BandStormApp.controller('ProjectCtrl', ['$scope', '$mdDialog', '$http', '$routeP
 
   $scope.projects = {};
 
+
   $http.get('/api/user/'+UserService.currentUser.id+'/projects')
   .success(function(data){
     $scope.projects = data;
@@ -50,11 +54,14 @@ BandStormApp.controller('ProjectCtrl', ['$scope', '$mdDialog', '$http', '$routeP
   //     $scope.project = data;
   //   })
   // }
-console.log('/api/user/'+UserService.currentUser.id+'/songs')
+
+  // api/user/:userId/project/:projectId
+console.log('/api/user/'+UserService.currentUser.id+'/project/'+$routeParams.id)
 if(typeof UserService.currentUser.id !== undefined || null || ''){
-    $http.get('/api/user/'+UserService.currentUser.id+'/songs')
+    $http.get('/api/user/'+UserService.currentUser.id+'/project/'+$routeParams.id)
     .success(function(data){
       $scope.project = data;
+      $scope.nombre = data.name
     })
   }
 
