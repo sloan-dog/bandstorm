@@ -15,6 +15,9 @@
 .navigators{
   background-color: #FFD936;
 }
+.new-project{
+  animation: rollIn .5s;
+}
 .project-view-inner{
   height:100%;
   margin:0;
@@ -24,16 +27,32 @@
   height:90%;
   margin:0;
   padding:0;
+  animation: fadeInLeft .3s;
+}
+.projects-view-inner{
+  height:100%;
+  margin:0;
+  padding:0;
+}
+.projects-view-outer{
+  height:90%;
+  margin:0;
+  padding:0;
+  animation: bounceInUp .6s;
+
 }
 .file-view-inner{
   height:100%;
   margin:0;
   padding:0;
+
+
 }
 .file-view-outer{
   height:90%;
   margin:0;
   padding:0;
+  animation: fadeInRight .3s;
 }
 .no-link-decoration, .no-link-decoration:focus, .no-link-decoration:hover{
   position: relative;
@@ -45,24 +64,24 @@
   height:auto;
   margin:0;
   padding:0;
-  animation: zoomInDown 2s, fadeIn 2s, pulse .5s;
+  animation: zoomInDown 1s, fadeIn 1s;
 
 }
 .home-view-outer{
   height:auto;
   margin:0;
   padding:0;
-  animation: zoomInDown 1s, fadeIn 2s;
+  animation: zoomInDown .5, fadeIn 1.5s;
 
 }
 .shower{
-  animation: jello .8s, fadeIn 2s;
+  animation: jello .3s, fadeIn .6s;
 
 }
 .nav{
   margin-bottom: 15px;
   padding: 2px;
-  animation: zoomInDown 0.5s, fadeIn 2s;
+  animation: zoomInDown 1s, fadeIn 1s;
 
 }
 .info-well{

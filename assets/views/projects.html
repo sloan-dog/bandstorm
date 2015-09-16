@@ -1,9 +1,10 @@
 <div class="row">
   <div class="col-md-12">
-    <div class="well project-view-outer btn-info active">
-      <div class="well project-view-inner">
+    <div class="well projects-view-outer btn-info active">
+      <div class="well projects-view-inner">
         <table class="table table-hover">
-          <legend>{{currentUser.name}}'s Projects <a href="/project/new" class="btn-sm btn-success glyphicon glyphicon-plus no-link-decoration pull-right"><md-tooltip>Create a New Project</md-tooltip></a><i ng-click="helpModal()" class="btn-sm btn-warning glyphicon glyphicon-question-sign no-link-decoration pull-right"><md-tooltip>Help</md-tooltip></i></legend>
+          <legend>{{ currentUser.name }}'s Projects <a href="/project/new" class="btn-sm btn-success glyphicon glyphicon-plus no-link-decoration pull-right"><md-tooltip>Create a New Project</md-tooltip></a>
+          <i ng-click="helpModal()" class="btn-sm btn-warning glyphicon glyphicon-question-sign no-link-decoration pull-right"><md-tooltip>Help</md-tooltip></i></legend>
           <thead>
             <tr>
               <th><a ng-click="orderField='name'"><i class="glyphicon glyphicon-chevron-down" ng-show="orderField==='name'"></i>Project Name:</a></th>
@@ -11,10 +12,11 @@
 
             </tr>
           </thead>
+          <div style="position:absolute;top:40%;left:40%;" class="well col-md-2 pull-right" ng-if="projects.projects.length === 0"> Hey {{currentUser.name}}, Click the <i class="glyphicon glyphicon-plus"></i> Button to create a new project</div>
           <tbody>
             <tr ng-repeat="item in projects.projects | orderBy:orderField">
-              <td><a href="/projects/{{currentUser.id}}/project/{{item.id}}">{{item.name}}</a></td>
-              <td>{{item.description}}</td>
+              <td><a href="/projects/{{currentUser.id}}/project/{{item.id}}">{{ item.name }}</a></td>
+              <td>{{ item.description }}</td>
             </tr>
           </tbody>
         </table>

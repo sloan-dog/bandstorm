@@ -4,8 +4,8 @@
         <div class="nav-bar nav btn-info active">
           <md-button class="pull-left brand  btn-info btn-xs active"><i class="logo glyphicon glyphicon-flash"></i>&nbsp;<a href="/" class="no-link-decoration">BandStorm</a></md-button>
           <ul class="list-group navigators" ng-controller="AuthCtrl">
-            <md-button ng-show='currentUser' class="list-group-item pull-right btn btn-info"><a class="no-link-decoration" href="/projects/{{currentUser.id}}">{{currentUser.name}}'s Projects</a><md-tooltip>Go to Project View</md-tooltip></md-button>
             <md-button ng-show='currentUser' ng-click="logOut()" class="list-group-item pull-right btn btn-info"><b>Logout</b></md-button>
+            <a class="no-link-decoration" href="/projects/{{currentUser.id}}"><md-button ng-show='currentUser' class="list-group-item pull-right btn btn-info">{{currentUser.name}}'s Projects<md-tooltip>Go to Project View</md-tooltip></md-button></a>
 
             <md-button ng-hide='currentUser' ng-click="logInModal()" class="list-group-item pull-right btn btn-info"><b>Login<md-tooltip>Go to Login Page</md-tooltip></b></md-button>
             <md-button ng-hide='currentUser' ng-click="signUpModal()" class="list-group-item pull-right btn btn-info"><b>Signup<md-tooltip>Go to Signup Page</md-tooltip></b></md-button>

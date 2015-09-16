@@ -3,6 +3,11 @@ BandStormApp.controller('HomeCtrl', ['$scope','UserService', function($scope, Us
   $scope.showInfo = false;
   $scope.showInfoText = false;
 
+  $scope.UserService = UserService;
+  $scope.$watchCollection('UserService', function(){
+    $scope.currentUser = UserService.currentUser;
+  });
+
   // $scope.UserService = UserService;
   // $scope.$watchCollection('UserService', function(){
   //   $scope.currentUser = UserService.currentUser;
