@@ -14,8 +14,12 @@ BandStormApp.controller('ProjectCtrl', ['$scope', '$mdDialog', '$http', '$routeP
     $mdDialog.show({
         targetEvent: $event,
         templateUrl: 'views/addsong.html',
-        controller: 'CreateProjectCtrl'
+        controller: 'AddSongCtrl'
     });
+  }
+
+  $scope.closeModal = function() {
+    $mdDialog.hide();
   }
 
   $scope.helpModal = function($event) {
