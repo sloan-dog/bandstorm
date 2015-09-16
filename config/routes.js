@@ -31,6 +31,7 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
+  // PROJECT ROUTES
   'GET /api/user/:userId/project/:projectId': {
     controller: 'ProjectController',
     action: 'showOne'
@@ -39,10 +40,20 @@ module.exports.routes = {
     controller: 'ProjectController',
     action: 'showAll'
   },
+  // SONG ROUTES
   'POST /api/song/create': {
     controller: 'SongController',
     action: 'create'
   },
+  'GET /api/song/:projectId': {
+    controller: 'SongController',
+    action: 'showAll'
+  },
+  'GET /api/song/:songId': {
+    controller :'SongController',
+    action: 'showOne'
+  },
+  // AUTH ROUTES
   'GET /api/auth/': {
     controller:'AuthController',
     action:'check'
@@ -55,7 +66,7 @@ module.exports.routes = {
     controller: 'AuthController',
     action: 'logout'
   },
-
+  // GENERAL ROUTES
   'get /':'PagesController.homePage',
 
   "get *":{

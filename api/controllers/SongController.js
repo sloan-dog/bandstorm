@@ -61,6 +61,26 @@ module.exports = {
 
         });
 
+    },
+    showAll: function(req,res){
+        var pId = req.params.projectId;
+        Song.find({where:{project:pId}}).then(function(songs){
+            console.log(songs);
+            res.send(songs);
+        }).catch(function(err){
+            console.log(err);
+            res.send(err);
+        })
+    },
+    showOne: function(req,res){
+        var sId = req.params.songId;
+        Song.findOne({where:{id:sId}}).then(function(song){
+            console.log(song);
+            res.send(song);
+        }).catch(function(err){
+            console.log(err);
+            res.send(err);
+        })
     }
 };
 
