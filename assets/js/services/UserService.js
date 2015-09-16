@@ -39,7 +39,7 @@ BandStormApp.factory('UserService', ['$http','$location', function($http,$locati
 
       $http.get('/api/auth/logout').success(function(data){
         $location.path('/')
-        callback(null,data)
+        // callback(null,data)
       }).error(callback)
 
     }
