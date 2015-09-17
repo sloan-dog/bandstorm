@@ -1,7 +1,7 @@
 <div ng-app="BandStormApp">
   <div class="row" ng-controller="AuthCtrl">
 
-    <md-menu cmd-menulass="col-md-12">
+    <div class="col-md-12">
       <div class="nav-bar nav btn-info active">
         <a href="/"><md-button class="pull-left brand  btn-info btn-xs active"><i class="glyphicon glyphicon-flash logo"></i>&nbsp;<b class="logo-text no-link-decoration">BandStorm</b></md-button></a>
           <ul class="list-group navigators">
@@ -14,7 +14,7 @@
             <md-button ng-hide='currentUser' ng-click="signUpModal()" class="list-group-item pull-right btn btn-info"><b>Signup<md-tooltip>Go to Signup Page</md-tooltip></b></md-button>
           </ul>
       </div>
-    </md-menu>
+    </div>
   </div>
   <ng-view></ng-view>
 </div>
