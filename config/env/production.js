@@ -20,12 +20,12 @@ module.exports = {
   connections:{
         myMongoDbServerProd: {
             adapter: 'sails-mongo',
-            url: 'mongodb://heroku_nfskqhkb:ks1jog0ck01nn4fv2082bhc20b@ds061308.mongolab.com:61308/heroku_nfskqhkb'
-        }
+            url: process.env.MONGOLAB_URI
   },
 
   models: {
-    connection: 'myMongoDbServerProd'
+    connection: 'myMongoDbServerProd',
+    schema: true
   },
 
   /***************************************************************************
@@ -37,7 +37,6 @@ module.exports = {
   /***************************************************************************
    * Set the log level in production environment to "silent"                 *
    ***************************************************************************/
-
   // log: {
   //   level: "silent"
   // }
