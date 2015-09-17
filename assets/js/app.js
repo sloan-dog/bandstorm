@@ -21,6 +21,8 @@ BandStormApp.config(['$routeProvider','$locationProvider', function($routeProvid
 
   $locationProvider.html5Mode(true);
 
+  // /song/new
+
   $routeProvider
   .when('/',{
     templateUrl: '/views/home.html',
@@ -37,6 +39,10 @@ BandStormApp.config(['$routeProvider','$locationProvider', function($routeProvid
   .when('/project/new',{
     templateUrl: '/views/createproject.html',
     controller: 'CreateProjectCtrl'
+  })
+  .when('/project/:id/song/new',{
+    templateUrl: '/views/addsong.html',
+    controller: 'AddSongCtrl'
   })
   .otherwise({
     templateUrl:'/views/404.html'
