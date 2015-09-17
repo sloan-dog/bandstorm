@@ -122,6 +122,10 @@ body > div > ng-view > div > div.col-md-3 > div > div > ul{
   }
 }
 
+.no-padding{
+  padding: 0 !important;
+}
+
 
 
 
