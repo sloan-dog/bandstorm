@@ -15,11 +15,14 @@ module.exports = {
     email: {
         type:'string',
         required: true,
-        unique: true
+        unique: true,
+        email: true
     },
     password: {
         type:'string',
-        required: true
+        required: true,
+        min: 6,
+        max: 24
     },
     songs: {
         collection: 'song',

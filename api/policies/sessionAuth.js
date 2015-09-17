@@ -12,7 +12,10 @@ module.exports = function(req, res, next) {
   // User is allowed, proceed to the next policy,
   // or if this is the last policy, the controller
   // req.session.user = "55f60c501098a28e72d6517a";
-  if (req.isAuthenticated()) {
+  // console.log('policy',req.socket,req.user,req.session,req.isAuthenticated)
+  //req.isAuthenticated()
+  if (req.session.passport && req.session.passport.user) {
+    req.user = req.user || req.session.passport.user;
     return next();
   }
 

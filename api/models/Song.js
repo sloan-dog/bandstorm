@@ -18,14 +18,15 @@ module.exports = {
             type:'string',
             required:true
         },
-        version: {type:'string',required:true},
+        version: {type:'integer',required:true},
         branch: {type:'string'},
         user: {
-            model: 'user'
+            model: 'user',
+            required: true
         },
         project: {
             model: 'Project',
-            // required: true
+            required: true
         },
         s3url: {type:'string',required:true},
     }

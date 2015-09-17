@@ -12,11 +12,11 @@ var chatlog = [
 module.exports = {
 
   join: function(req,res){
-    // console.log(req);
+    console.log(req);
     //notify users of join / leave room
-    sails.sockets.broadcast('mychatroom','userjoin',{user:'tim@time.com'});
+    sails.sockets.broadcast('mychatroom','userjoin',{user:req.user.name});
     req.socket.on('disconnect', function(){
-      sails.sockets.broadcast('mychatroom','userleave',{user:'tim@time.com'});
+      sails.sockets.broadcast('mychatroom','userleave',{user:req.user.name});
     });
 
     sails.sockets.join(req.socket, 'mychatroom');
@@ -26,7 +26,7 @@ module.exports = {
   post: function(req,res){
     var msg = {
       msg: req.body.msg,
-      from: 'tim@time.com'
+      from: req.user.name
     };
     chatlog.push(msg);
     sails.sockets.broadcast('mychatroom', 'addchat', msg);

@@ -59,7 +59,7 @@ BandStormApp.controller('ChatCtrl',['$scope', 'UserService',function($scope, Use
     // })
     // var data = {data}
 
-    io.socket.post('/api/chat/join',data,function(data, jwRes){
+    io.socket.post('/api/chat/join',{},function(data, jwRes){
       //$scope.$apply
       console.log('chat joined');
       $scope.$evalAsync(function(){
