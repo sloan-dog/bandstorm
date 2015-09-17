@@ -16,3 +16,5 @@ BandStormApp.directive("fileread", [function () {
         }
     }
 }]);
+
+BandStormApp.dire
