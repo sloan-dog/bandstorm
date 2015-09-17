@@ -1,13 +1,12 @@
 <div class="well new-project btn-info active">
-    <form class="well">
-        <!-- for development -->
-        current user id ={{currentUser.id}}
-        <!-- delete for production -->
+    <form ng-submit="createProject()" class="well">
+    <a class="glyphicon glyphicon-chevron-left pull-right btn-sm btn-info" href="projects/{{currentUser.id}}"></a>
+    <h1>Create a Project</h1>
         <input type="hidden" name="user" value="{{currentUser.id}}">
         <label>Project Title</label>
-        <input type="text" ng-model="newProject.name">
+        <md-input-container><input type="text" ng-model="newProject.name" required></md-input-container><br>
         <label>Description</label>
-        <input type="text" ng-model="newProject.description">
-        <button ng-click="createProject()" type="submit" class="btn btn-info">Create Project {{project.name}}</button>
+        <md-input-container><input type="text" ng-model="newProject.description" required></md-input-container><br>
+        <button type="submit" class="btn btn-info">Create Project {{project.name}}</button>
     </form>
 </div>
