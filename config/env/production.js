@@ -17,9 +17,16 @@ module.exports = {
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
 
-  // models: {
-  //   connection: 'someMysqlServer'
-  // },
+  connections:{
+        myMongoDbServerProd: {
+            adapter: 'sails-mongo',
+            url: 'mongodb://heroku_nfskqhkb:ks1jog0ck01nn4fv2082bhc20b@ds061308.mongolab.com:61308/heroku_nfskqhkb'
+        }
+  },
+
+  models: {
+    connection: 'myMongoDbServerProd'
+  },
 
   /***************************************************************************
    * Set the port in the production environment to 80                        *
