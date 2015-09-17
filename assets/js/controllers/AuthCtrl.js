@@ -56,7 +56,7 @@ BandStormApp.controller('AuthCtrl', ['$scope','$mdDialog','$http','$location','U
 
   $scope.signUp = function(callback){
     var newUser = $scope.newUser
-    $http.post('/api/user/create',{
+    $http.post('api/user/create',{
       name:newUser.name,
       email:newUser.email,
       password:newUser.password

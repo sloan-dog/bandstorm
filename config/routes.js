@@ -32,6 +32,10 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   // AUTH ROUTES
+  'POST /api/user/create' :{
+    controller: 'UserController',
+    action: 'create'
+  },
   'GET /api/auth/': {
     controller:'AuthController',
     action:'check'
