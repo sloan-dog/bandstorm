@@ -33,7 +33,7 @@ module.exports = {
             // create Song in database
             // Store s3url in song
             if(results){
-                console.log(results)
+                // console.log(results)
                 var name = results.textParams.name;
                 var description = results.textParams.description;
                 var version = results.textParams.version;

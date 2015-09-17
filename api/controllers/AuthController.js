@@ -9,9 +9,9 @@ module.exports = {
     process: function(req,res){
         passport.authenticate('local', function(err, user, info){
             if ( (err)||(!user) ) {
-                console.log(err);
-                console.log(user);
-                console.log(info);
+                // console.log(err);
+                // console.log(user);
+                // console.log(info);
                 return res.send({
                     message: info.message,
                     user: user
