@@ -6,7 +6,7 @@
         <hr>
           <h5 ng-if="project.songs.length===0">No songs yet... Add a song!</h5>
           <h4 ng-hide="project.songs.length===0" ng-click="collapseSong=!collapseSong"><i ng-hide="collapseSong" class="glyphicon-folder-close glyphicon"></i><i ng-click="collapseVersion=!collapseVersion" ng-show="collapseSong" class="glyphicon-folder-open glyphicon"></i>&nbsp;Songs</h4>
-          <ul class="list-group" ng-repeat="item in project.songs | orderBy:'name' track by $index">
+          <ul class="list-group" ng-repeat="item in project.songs | orderBy:'-name' track by $index">
             <li ng-show="collapseSong" ng-click="collapseVersion=!collapseVersion" class="list-group-item"><i class="glyphicon glyphicon-file" ng-hide="collapseVersion"></i><i class="glyphicon glyphicon-open-file" ng-show="collapseVersion"></i>&nbsp;{{item.name}} v{{item.version}}</li>
             <ul class="list-group" ng-if="collapseVersion">
               <li class="list-group-item"></li>
