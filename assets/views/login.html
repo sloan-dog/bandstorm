@@ -1,17 +1,17 @@
 <md-dialog class="row" flex="33">
   <md-dialog-content class="btn-info active col-md-12">
+      <md-button ng-click="closeModal()" class="pull-right btn-sm btn-danger">X</md-button>
       <h1 class="btn-info active text-center">Login to BandStorm</h1>
       <form class="well" ng-submit="logIn()">
         <md-input-container>
           <label>Email</label>
-          <input type="text" ng-model="user.email">
+          <input required type="text" ng-model="user.email">
         </md-input-container>
         <md-input-container>
           <label>Password</label>
-          <input type="password" ng-model="user.password">
+          <input required type="password" ng-model="user.password">
         </md-input-container>
         <md-button type="submit" class="btn btn-info">Create Account</md-button>
       </form>
-      <md-button ng-click="closeModal()" class="btn btn-danger">Close</md-button>
   </md-dialog-content>
 </md-dialog>

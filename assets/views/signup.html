@@ -1,21 +1,40 @@
 <md-dialog class="row" flex="33">
   <md-dialog-content class="btn-info active col-md-12">
+      <md-button ng-click="closeModal()" class="pull-right btn-sm btn-danger">X</md-button>
       <h2 class="btn-info active text-center">Create your BandStorm Account</h2>
       <form class="well" ng-submit="signUp()">
+        <label>Username</label>
         <md-input-container>
-          <label>Username</label>
-          <input type="text" ng-model="newUser.name">
+          <input type="text" required ng-model="newUser.name">
         </md-input-container>
+        <label>Email</label>
         <md-input-container>
-          <label>Email</label>
-          <input type="text" ng-model="newUser.email">
+          <input type="text" required ng-model="newUser.email">
         </md-input-container>
+        <label>Password</label>
         <md-input-container>
-          <label>Password</label>
-          <input type="password" ng-model="newUser.password">
+          <input type="password" required ng-model="newUser.password">
         </md-input-container>
-        <md-button type="submit" ng-click="signUp()" class="btn btn-info">Create Account</md-button>
+        <md-button type="submit" class="btn btn-info">Create Account</md-button>
       </form>
-      <md-button ng-click="closeModal()" class="btn btn-danger">Close</md-button>
   </md-dialog-content>
 </md-dialog>
+
+
+<!-- <form ng-submit="addSong()">
+        <label>Song Title:</label>
+    <md-input-container class="">
+        <input  required type="text" ng-model="titleText"><br>
+    </md-input-container>
+        <label>Song Description:</label>
+    <md-input-container  class="">
+        <input required type="text" ng-model="descriptionText"><br>
+    </md-input-container>
+
+        <label>Version Number:</label>
+    <md-input-container class="">
+        <input required name="version" type="text" ng-model="versionText"><br>
+    </md-input-container>
+    <div class="add-file btn-info active"><file-field required ng-model="uploadFile">Add File</file-field></div><br>
+    <md-button type="submit" class="btn btn-success">Upload Song</md-button>
+</form> -->

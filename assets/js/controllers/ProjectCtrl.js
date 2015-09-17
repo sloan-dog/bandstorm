@@ -40,7 +40,12 @@ BandStormApp.controller('ProjectCtrl', ['$scope', '$mdDialog', '$http', '$routeP
   }
 
   $scope.projects = {};
+  $scope.currentTrack = 0;
 
+  $scope.playVersion = function(idx){
+    $scope.currentTrack = idx;
+    console.log(idx)
+  }
 
   $http.get('/api/user/'+UserService.currentUser.id+'/projects')
   .success(function(data){

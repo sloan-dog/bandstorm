@@ -1,7 +1,10 @@
-BandStormApp.controller('AddSongCtrl', ['$scope','$http','$mdDialog','$routeParams','UserService', function($scope,$http,$mdDialog,$routeParams, UserService){
+BandStormApp.controller('AddSongCtrl', ['$scope','$http','$mdDialog','$location','$routeParams','UserService', function($scope,$http,$mdDialog,$location,$routeParams, UserService){
   console.log('AddSongCtrl init')
 
-
+  $scope.UserService = UserService;
+  $scope.$watchCollection('UserService', function(){
+    $scope.currentUser = UserService.currentUser;
+  });
 
   $scope.addSong = function(){
     var fd = new FormData();
@@ -26,11 +29,16 @@ BandStormApp.controller('AddSongCtrl', ['$scope','$http','$mdDialog','$routePara
     // content type undefined will allow browser to
     // automatically assign content type which will prevent
     // wrong type of assignment
+  $scope.closeModal = function() {
+      $mdDialog.hide();
+  }
 
     $http.post('/api/song/create', fd, {
         transformRequest: angular.identity,
         headers: {'Content-Type': undefined}
     }).success(function(data){
+      $scope.closeModal()
+      $location.path('/projects/'+UserService.currentUser.id+'/project/'+$routeParams.id)
       console.log('this - ',data)
     }).error(function(err){
         alert('there was an error uploading the file.');
@@ -39,9 +47,6 @@ BandStormApp.controller('AddSongCtrl', ['$scope','$http','$mdDialog','$routePara
   }
 
   // close add song modal
-  $scope.closeModal = function() {
-      $mdDialog.hide();
-  }
 
 }]);
 
