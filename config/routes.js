@@ -31,6 +31,29 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
+  // AUTH ROUTES
+  'GET /api/auth/': {
+    controller:'AuthController',
+    action:'check'
+  },
+  'POST /api/auth/login': {
+    controller: 'AuthController',
+    action: 'process'
+  },
+  'GET /api/auth/logout' :{
+    controller: 'AuthController',
+    action: 'logout'
+  },
+  'get /':'PagesController.homePage',
+  // CHAT ROUTES
+  'POST /api/chat/join': {
+    controller: 'ChatController',
+    action: 'join'
+  },
+  'POST /api/chat/post': {
+    controller: 'ChatController',
+    action: 'post'
+  },
   // PROJECT ROUTES
   'GET /api/user/:userId/project/:projectId': {
     controller: 'ProjectController',
@@ -53,21 +76,7 @@ module.exports.routes = {
     controller :'SongController',
     action: 'showOne'
   },
-  // AUTH ROUTES
-  'GET /api/auth/': {
-    controller:'AuthController',
-    action:'check'
-  },
-  'POST /api/auth/login': {
-    controller: 'AuthController',
-    action: 'process'
-  },
-  'GET /api/auth/logout' :{
-    controller: 'AuthController',
-    action: 'logout'
-  },
   // GENERAL ROUTES
-  'get /':'PagesController.homePage',
 
   "get *":{
     controller:"PagesController",

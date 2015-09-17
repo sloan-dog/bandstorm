@@ -28,8 +28,6 @@
     <div class="well file-view-outer btn-info active">
       <div class="well file-view-inner text-center">
         <li ng-repeat="(key, value) in project[0]">{{key}}: {{value}}</li>
-
-
         <audio ng-if="project[0].s3url.length > 1" controls ng-src="{{project[0].s3url | trustUrl}}"></audio>
       </div>
     </div>

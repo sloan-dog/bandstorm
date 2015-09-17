@@ -6,9 +6,13 @@
 */
 
 module.exports = {
-
-  attributes: {
-
-  }
+    attributes: {
+        msg: {
+            type: 'string'
+        },
+        user: {
+            type: 'string'
+        }
+    }
 };
 
