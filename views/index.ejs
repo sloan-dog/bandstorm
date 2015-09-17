@@ -14,4 +14,21 @@
       </div>
     </div>
   <ng-view></ng-view>
+  <div class="col-md-12">
+        <div class="nav-bar nav active">
+        <div ng-controller="ChatCtrl">
+    <div class="chat-window" ng-show="currentUser">
+      <ul class="chat-list">
+        <li ng-repeat="msg in messages">
+          <b>{{msg.from}}:</b> {{msg.msg}}
+        </li>
+      </ul>
+      <md-input-container ng-submit="sendMsg()">
+        <input ng-model="msgText" type="text" placeholder="Say something" />
+        <button class="btn btn-xs btn-primary" type="submit">Send</button>
+      </md-input-container>
+    </div>
+  </div>
+        </div>
+      </div>
 </div>
