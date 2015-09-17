@@ -4,20 +4,19 @@
         <hr>
         <div class="well">
             <form ng-submit="addSong()">
-                    <label>Song Title:</label>
                 <md-input-container class="">
+                    <label>Song Title:</label>
                     <input  required type="text" ng-model="titleText"><br>
                 </md-input-container>
-                    <label>Song Description:</label>
                 <md-input-container  class="">
+                    <label>Song Description:</label>
                     <input required type="text" ng-model="descriptionText"><br>
                 </md-input-container>
-
-                    <label>Version Number:</label>
                 <md-input-container class="">
-                    <input required name="version" type="text" ng-model="versionText"><br>
+                    <label>Version Number:</label>
+                    <input required name="version" type="number" ng-model="versionText"><br>
                 </md-input-container>
-                <div class="add-file btn-info active"><file-field required ng-model="uploadFile">Add File</file-field></div><br>
+                <md-input-container><file-field required ng-model="uploadFile">Add File</file-field></md-input-container><br>
                 <md-button type="submit" class="btn btn-success">Upload Song</md-button>
             </form>
         </div>

@@ -1,7 +1,7 @@
 <md-dialog class="row" flex="33">
   <md-dialog-content class="btn-info active col-md-12">
       <md-button ng-click="closeModal()" class="pull-right btn-sm btn-danger">X</md-button>
-      <h2 class="btn-info active text-center">Create your BandStorm Account</h2>
+      <h3 class="btn-info active text-center">Create your BandStorm Account</h3>
       <form class="well" ng-submit="signUp()">
         <label>Username</label>
         <md-input-container>
@@ -9,7 +9,7 @@
         </md-input-container>
         <label>Email</label>
         <md-input-container>
-          <input type="text" required ng-model="newUser.email">
+          <input type="email" required ng-model="newUser.email">
         </md-input-container>
         <label>Password</label>
         <md-input-container>
