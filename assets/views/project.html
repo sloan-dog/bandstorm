@@ -33,10 +33,15 @@
         <h4>{{project.songs[currentTrack].createdAt | date:'shortDate'}}</h4>
         <audio  controls ng-src="{{project.songs[currentTrack].s3url | trustUrl}}"><br></audio>
       </div>
+      <div>
+        <h3>Collabing with:</h3>
+        <h4 ng-repeat="person in project.users">{{person.name}}</h4>
+      </div>
+      <hr>
       <legend>Add a User to {{project.name}}</legend>
       <select ng-model="chosenUser">
-        <option ng-repeat="user in users">{{user.name}}<input type="text" value="{{chosenUser}}"></option>
-          <md-button ng-click="addProject(userToAdd)"></md-button>
+        <option ng-repeat="user in users" ng-hide="project.users.indexOf(user.name)!==-1">{{user.name}}</option>
+          <!-- <md-button ng-click="addProject(userToAdd)"></md-button> -->
       </select>
       <md-button ng-click="addProject(chosenUser)"> Add {{chosenUser}} to project</md-button>
       <!-- <select ng-model="chosenUser" ng-options="name as user.name for user in users"></select> -->
