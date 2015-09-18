@@ -73,28 +73,29 @@ angular.module('material.chatWindow', ['ngMaterial'])
         // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
         // restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
         restrict: 'E',
-        template: '<div class="col-md-12">' +
-        '<div class="nav-bar nav active">' +
-            '<div>' +
-                '<div class="chat-window" ng-show="currentUser">' +
-                  '<ul class="chat-list">' +
-                    '<li ng-repeat="msg in messages">' +
-                      '<b>{{msg.from}}:</b> {{msg.msg}}' +
-                    '</li>' +
-                  '</ul>' +
-                  '<form class="inline-form" ng-submit="sendMsg()">' +
-                    '<md-input>' +
-                        '<input ng-model="msgText" type="text" placeholder="Say something" />' +
-                        '<button class="btn btn-xs btn-primary" type="submit">Send</button>' +
-                    '</md-input>' +
-                  '</form>' +
-                '</div>' +
-        '</div>' +
-    '</div>' +
-'</div>',
-    // templateUrl: 'fuckoff.html',
-        // replace: true,
-        // transclude: true,
+        template:
+          '<div class="col-md-12">' +
+                  '<div class="nav-bar nav active">' +
+                      '<div>' +
+                          '<div class="chat-window" ng-show="currentUser">' +
+                            '<ul class="chat-list">' +
+                              '<li ng-repeat="msg in messages">' +
+                                '<b>{{msg.from}}:</b> {{msg.msg}}' +
+                              '</li>' +
+                            '</ul>' +
+                            '<form class="inline-form" ng-submit="sendMsg()">' +
+                              '<md-input>' +
+                                  '<input ng-model="msgText" type="text" placeholder="Say something" />' +
+                                  '<button class="btn btn-xs btn-primary" type="submit">Send</button>' +
+                              '</md-input>' +
+                            '</form>' +
+                          '</div>' +
+                  '</div>' +
+              '</div>' +
+          '</div>',
+
+        replace: true,
+        transclude: true
         // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
         // link: function($scope, iElm, iAttrs, controller) {
 

@@ -40,7 +40,7 @@ body > div > ng-view > div > div.col-md-3 > div > div > ul{
   width: auto;
   margin:0;
   padding:0;
-  overflow: scroll;
+  /*overflow: scroll;*/
   animation: fadeInLeft .3s;
 }
 .projects-view-inner{
@@ -52,7 +52,7 @@ body > div > ng-view > div > div.col-md-3 > div > div > ul{
   max-height:100%;
   margin:0;
   padding:0;
-  animation: bounceInUp .6s;
+  animation: zoomInUp .6s;
 
 }
 .file-view-inner{
@@ -111,21 +111,45 @@ body > div > ng-view > div > div.col-md-3 > div > div > ul{
   /*border: dotted rgba(0,0,0,0.5) 2px;*/
 
 }
-  .menudemoBasicUsage .md-menu-demo {
-  padding: 24px; }
-.menudemoBasicUsage .menu-demo-container {
-  min-height: 200px; }
 
 @media (max-width: 550px) {
   .logo-text{
     display: none;
   }
 }
+.chat-user{
+  padding:5px;
+  border-radius: 10px;
+}
+.chat-list{
+  padding: 0;
+  margin: 0;
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    /*width: 90%;*/
+    transition:all .5s;
+  /*width: 50%;*/
 
-.no-padding{
-  padding: 0 !important;
 }
 
+.chat-list{
+  list-style: none;
+  height: 200px;
+  overflow: hidden;
+  overflow-y: scroll;
+  padding-bottom: 30px ;
+}
 
+.chat-window .chat-list li{
+  list-style: none !important;
+}
 
+.chat-window .chat-list li:nth-child(even){
+  background: #DDDDDD !important;
+}
+.hr-chat{
+  margin: 10px !important;
+}
 

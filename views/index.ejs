@@ -7,9 +7,6 @@
           <ul class="list-group navigators">
             <md-button ng-show='currentUser' ng-click="logOut()" class="list-group-item pull-right btn btn-info"><b>Logout<md-tooltip>Get me outta here!</md-tooltip></b></md-button>
             <a class="no-link-decoration" href="/projects/{{currentUser.id}}"><md-button ng-show='currentUser' class="list-group-item pull-right btn btn-info">{{currentUser.name}}'s Projects<md-tooltip>Go to Project View</md-tooltip></md-button></a>
-
-
-
             <md-button ng-hide='currentUser' ng-click="logInModal()" class="list-group-item pull-right btn btn-info"><b>Login<md-tooltip>Go to Login Page</md-tooltip></b></md-button>
             <md-button ng-hide='currentUser' ng-click="signUpModal()" class="list-group-item pull-right btn btn-info"><b>Signup<md-tooltip>Go to Signup Page</md-tooltip></b></md-button>
           </ul>
@@ -17,5 +14,29 @@
     </div>
   </div>
   <ng-view></ng-view>
-  <band-storm-chat />
+<div class="footer navbar-fixed-bottom btn-info active">
+  <md-button ng-init="chatShow=false" ng-click="chatShow=!chatShow" class="btn-sm active btn-info container-fluid text-right">&nbsp;Chat <b ng-hide="chatShow" class="glyphicon glyphicon-chevron-up"></b><b ng-show="chatShow" class="glyphicon glyphicon-chevron-down"></b></md-button>
+  <div ng-if="chatShow" class="chat-position">
+    <div class="" ng-controller="ChatCtrl" ng-show="currentUser">
+
+      <div class-"">
+        <div>
+          <div class="chat-window well">
+            <ul class="chat-list">
+              <div class="container" ng-class="{'text-right':msg.from===currentUser.name}" ng-repeat="msg in messages">
+                <b ng-if="msg.from!==currentUser.name">{{msg.from}}: </b><b ng-class="{'btn-info':msg.from===currentUser.name,'btn-warning':msg.from!==currentUser.name}" class="chat-user">{{msg.msg}}</b><hr class="hr-chat">
+              </div>
+            </ul><br>
+            <div class="text-center">
+              <form class="" ng-submit="sendMsg()">
+                <input class="chat-input" ng-model="msgText" type="text" />
+                <md-button class="btn-info btn" type="submit">Send</md-button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
 </div>
