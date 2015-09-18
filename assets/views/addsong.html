@@ -1,25 +1,23 @@
 <div  class="add-song-outer">
     <div class="well btn-info active">
-        <h1>Upload a Song!</h1>
-        <hr>
+
         <div class="well">
             <form ng-submit="addSong()">
-                <md-input-container class="">
-                    <label>Song Title:</label>
+                <div class="">
+                    <label>Song Title:</label><br>
                     <input  required type="text" ng-model="titleText"><br>
-                </md-input-container>
-                <md-input-container  class="">
-                    <label>Song Description:</label>
-                    <input required type="text" ng-model="descriptionText"><br>
-                </md-input-container>
-                <md-input-container class="">
-                    <label>Version Number:</label>
+                </div>
+                <div  class="">
+                    <label>Song Description:</label><br>
+                    <textarea rows="4" cols="30" style="resize:none;" required type="text" ng-model="descriptionText"></textarea><br>
+                </div>
+                <div class="">
+                    <label>Version Number:</label><br>
                     <input required name="version" type="number" ng-model="versionText"><br>
-                </md-input-container>
-                <md-input-container><file-field required ng-model="uploadFile">Add File</file-field></md-input-container><br>
-                <md-button type="submit" class="btn btn-success">Upload Song</md-button>
+                </div>
+                <file-field required ng-model="uploadFile">Add File</file-field>
+                <button type="submit" class="btn btn-success">Upload Song</button>
             </form>
         </div>
-            <hr>
     </div>
 </div>

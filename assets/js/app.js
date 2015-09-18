@@ -44,6 +44,10 @@ BandStormApp.config(['$routeProvider','$locationProvider', function($routeProvid
     templateUrl: '/views/addsong.html',
     controller: 'AddSongCtrl'
   })
+  .when('/chat',{
+    templateUrl:'/views/chat.html',
+    controller:'ChatCtrl'
+  })
   .otherwise({
     templateUrl:'/views/404.html'
   })

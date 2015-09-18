@@ -3,10 +3,14 @@
     <a class="glyphicon glyphicon-chevron-left pull-right btn-sm btn-info" href="projects/{{currentUser.id}}"></a>
     <h1>Create a Project</h1>
         <input type="hidden" name="user" value="{{currentUser.id}}">
+        <md-input-container>
         <label>Project Title</label>
-        <md-input-container><input type="text" ng-model="newProject.name" required></md-input-container><br>
+        <input type="text" ng-model="newProject.name" required>
+        </md-input-container><br>
+        <md-input-container>
         <label>Description</label>
-        <md-input-container><input type="text" ng-model="newProject.description" required></md-input-container><br>
+        <input type="text" ng-model="newProject.description" required>
+        </md-input-container><br>
         <button type="submit" class="btn btn-info">Create Project {{project.name}}</button>
     </form>
 </div>

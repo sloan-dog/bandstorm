@@ -1,0 +1,27 @@
+
+
+<div class="btn-info active">
+  <md-button ng-init="chatShow=true" class="btn-sm active btn-info container-fluid text-right">&nbsp;Chat <b ng-hide="chatShow" class="glyphicon glyphicon-chevron-up"></b><b ng-show="chatShow" class="glyphicon glyphicon-chevron-down"></b></md-button>
+  <div ng-if="chatShow" class="">
+    <div class="" ng-controller="ChatCtrl" ng-show="currentUser">
+      <div class-"">
+        <div>
+          <div class="chat-window well">
+            <ul class="chat-list-main">
+              <div class="container" ng-class="{'text-right':msg.from===currentUser.name}" ng-repeat="msg in messages">
+                <b ng-if="msg.from!==currentUser.name">{{msg.from}}: </b><b ng-class="{'btn-info':msg.from===currentUser.name,'btn-warning':msg.from!==currentUser.name}" class="chat-user">{{msg.msg}}</b><hr class="hr-chat">
+              </div>
+            </ul><br>
+            <div class="text-center">
+              <form class="" ng-submit="sendMsg()">
+                <input class="chat-input" ng-model="msgText" type="text" />
+                <md-button class="btn-info btn" type="submit">Send</md-button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

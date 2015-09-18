@@ -128,10 +128,7 @@ body > div > ng-view > div > div.col-md-3 > div > div > ul{
 .footer{
     position: absolute;
     bottom: 0;
-    /*width: 90%;*/
     transition:all .5s;
-  /*width: 50%;*/
-
 }
 
 .chat-list{
@@ -139,7 +136,8 @@ body > div > ng-view > div > div.col-md-3 > div > div > ul{
   height: 200px;
   overflow: hidden;
   overflow-y: scroll;
-  padding-bottom: 30px ;
+  padding-bottom: 30px;
+  word-wrap: break-word;
 }
 
 .chat-window .chat-list li{
@@ -151,5 +149,13 @@ body > div > ng-view > div > div.col-md-3 > div > div > ul{
 }
 .hr-chat{
   margin: 10px !important;
+}
+.chat-list-main{
+  list-style: none;
+  max-height: 600px;
+  overflow: hidden;
+  overflow-y: scroll;
+  padding-bottom: 30px;
+  word-wrap: break-word;
 }
 

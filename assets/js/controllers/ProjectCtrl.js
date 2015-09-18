@@ -1,4 +1,4 @@
-BandStormApp.controller('ProjectCtrl', ['$scope', '$mdDialog', '$http', '$routeParams','FileUploader','UserService', function($scope,$mdDialog,$http,$routeParams,FileUploader,UserService){
+  BandStormApp.controller('ProjectCtrl', ['$scope', '$mdDialog', '$http', '$routeParams','FileUploader','UserService', function($scope,$mdDialog,$http,$routeParams,FileUploader,UserService){
   console.log('ProjectCtrl init')
 
   $scope.orderField = 'name';
@@ -26,7 +26,7 @@ BandStormApp.controller('ProjectCtrl', ['$scope', '$mdDialog', '$http', '$routeP
   }
 
   $scope.helpModal = function($event) {
-    alert = $mdDialog.alert({
+    var alert = $mdDialog.alert({
         title: 'Help',
         content: 'This is a list of all your projects. To create a new project, click the green plus icon.',
         ok: 'Got it!'
