@@ -5,7 +5,7 @@
 
   $scope.users = [];
   $scope.chosenUser = '';
-  $scope.userId= '';
+  $scope.userToAdd= '';
   $scope.addProjectResponse;
 
   $scope.UserService = UserService;
@@ -16,7 +16,8 @@
   // $scope.currentProjectName = $routeParams.id
   $scope.currentProjectId = ''+$routeParams.id
 
-  console.log(UserService.currentUser.id)
+  // console.log(UserService.currentUser.id)
+
 
   $scope.addSongModal = function($event) {
     $mdDialog.show({
@@ -26,19 +27,30 @@
     });
   }
 
-  $scope.showAllUsers = function(){
-    $http.get('/api/user/showAll')
-    .succes(function(users){
-      $scope.users = users;
-    })
-  }
 
-  $scope.addProject = function(){
-    var chosenUserName;
+
+  $http.get('/api/user/showAll')
+  .success(function(users){
+    $scope.users = users;
+  })
+
+
+
+
+  $scope.addProject = function(userToAdd){
+    // var userId = $scope.userToAdd.id;
+    // console.log(userToAdd);
+    // for(var name in )
+    var chosenUser = $scope.users.filter(function (user) { return user.name == userToAdd });
+    console.log(chosenUser[0].id);
+    var userId = chosenUser[0].id
+  // => [{ "name": "john", "dinner": "sushi" }]
+    // console.log(userId);
+    // var chosenUserName;
     var projectId;
     projectId = $routeParams.id;
-    $http.post('/api/user/addToProject/'+$scope.userId + '/' + projectId)
-    .sucess(function(data){
+    $http.post('/api/user/addToProject/'+ userId + '/' + projectId)
+    .success(function(data){
       $scope.addProjectResponse = data;
       console.log($scope.addProjectResponse);
     })
