@@ -52,7 +52,8 @@
     $http.post('/api/user/addToProject/'+ userId + '/' + projectId)
     .success(function(data){
       $scope.addProjectResponse = data;
-      console.log($scope.addProjectResponse);
+      alert('you added'+data.name+'to this project')
+
     })
   }
 
