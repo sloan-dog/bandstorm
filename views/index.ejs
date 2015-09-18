@@ -2,7 +2,7 @@
   <div class="row" ng-controller="AuthCtrl">
 
     <div class="col-md-12">
-      <div class="nav-bar nav btn-info active">
+      <div class="navbar navbar-fixed-top nav btn-info active">
         <a href="/"><md-button class="pull-left brand  btn-info btn-xs active"><i class="glyphicon glyphicon-flash logo"></i>&nbsp;<b class="logo-text no-link-decoration">BandStorm</b></md-button></a>
           <ul class="list-group navigators">
             <md-button ng-show='currentUser' ng-click="logOut()" class="list-group-item pull-right btn btn-info"><b>Logout<md-tooltip>Get me outta here!</md-tooltip></b></md-button>
@@ -13,9 +13,10 @@
       </div>
     </div>
   </div>
+  <h1 style="color:transparent;">Spacer</h1>
   <ng-view></ng-view>
 <div class="footer navbar-fixed-bottom btn-info active">
-  <md-button ng-init="chatShow=false" ng-click="chatShow=!chatShow" class="btn-sm active btn-info container-fluid text-right">&nbsp;Chat <b ng-hide="chatShow" class="glyphicon glyphicon-chevron-up"></b><b ng-show="chatShow" class="glyphicon glyphicon-chevron-down"></b></md-button>
+  <md-button  ng-init="chatShow=false" ng-click="chatShow=!chatShow" class="btn-sm active btn-info container-fluid text-right">&nbsp;Chat <b ng-hide="chatShow" class="glyphicon glyphicon-chevron-up"></b><b ng-show="chatShow" class="glyphicon glyphicon-chevron-down"></b></md-button>
   <div ng-if="chatShow" class="chat-position">
     <div class="" ng-controller="ChatCtrl" ng-show="currentUser">
 
