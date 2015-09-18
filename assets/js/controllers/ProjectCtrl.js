@@ -3,6 +3,11 @@ BandStormApp.controller('ProjectCtrl', ['$scope', '$mdDialog', '$http', '$routeP
 
   $scope.orderField = 'name';
 
+  $scope.users = [];
+  $scope.chosenUser = '';
+  $scope.userId= '';
+  $scope.addProjectResponse;
+
   $scope.UserService = UserService;
   $scope.$watchCollection('UserService', function(){
     $scope.currentUser = UserService.currentUser;
@@ -19,6 +24,24 @@ BandStormApp.controller('ProjectCtrl', ['$scope', '$mdDialog', '$http', '$routeP
         templateUrl: 'views/addsong.html',
         controller: 'AddSongCtrl'
     });
+  }
+
+  $scope.showAllUsers = function(){
+    $http.get('/api/user/showAll')
+    .succes(function(users){
+      $scope.users = users;
+    })
+  }
+
+  $scope.addProject = function(){
+    var chosenUserName;
+    var projectId;
+    projectId = $routeParams.id;
+    $http.post('/api/user/addToProject/'+$scope.userId + '/' + projectId)
+    .sucess(function(data){
+      $scope.addProjectResponse = data;
+      console.log($scope.addProjectResponse);
+    })
   }
 
   $scope.closeModal = function() {

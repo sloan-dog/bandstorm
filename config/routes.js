@@ -48,6 +48,10 @@ module.exports.routes = {
     controller: 'AuthController',
     action: 'logout'
   },
+  'GET /api/user/showAll': {
+    controller: 'UserController',
+    action: 'showAll'
+  },
   'get /':'PagesController.homePage',
   // CHAT ROUTES
   'POST /api/chat/join': {
@@ -66,6 +70,10 @@ module.exports.routes = {
   'GET /api/user/:userId/projects' : {
     controller: 'ProjectController',
     action: 'showAll'
+  },
+  'POST /api/user/addToProject/:userId/:projectId': {
+    controller: 'UserController',
+    action: 'addProject'
   },
   // SONG ROUTES
   'POST /api/song/create': {

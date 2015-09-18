@@ -11,12 +11,12 @@ module.exports = {
         });
     },
     addProject: function(req,res){
-        User.findOne({where:{id:req.body.userId}}).then(function(user){
-            Project.findOne({where:{id:req.body.projectId}}).then(function(project){
+        User.findOne({where:{id:req.params.userId}}).then(function(user){
+            Project.findOne({where:{id:req.params.projectId}}).then(function(project){
                 user.projects.add(project);
                 return user.save();
             }).then(function(){
-                User.findOne({id:req.body.userId}).populate('projects')
+                User.findOne({id:req.params.userId}).populate('projects')
                 .then(function(user){
                     console.log(user);
                     res.send(user);
@@ -27,6 +27,15 @@ module.exports = {
             .catch(function(err){
             res.send(400, err);
             });
+        })
+    },
+    showAll: function(req,res){
+        User.find().then(function(users){
+            res.send(users);
+        }).catch(function(err){
+            if(err){
+                res.send(400,err);
+            }
         })
     }
 };
