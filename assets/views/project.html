@@ -22,6 +22,7 @@
   <div class="col-md-9 col-sm-6 col-xs-6">
     <div class="well file-view-outer btn-info active">
       <div class="well file-view-inner text-center">
+      <!-- {{users}} -->
         <li ng-repeat="(key, value) in project[0]">{{key}}: {{value}}</li>
 
         <audio ng-if="project[0].s3url.length > 1" controls ng-src="{{project[0].s3url | trustUrl}}"></audio>
@@ -32,6 +33,14 @@
         <h4>{{project.songs[currentTrack].createdAt | date:'shortDate'}}</h4>
         <audio  controls ng-src="{{project.songs[currentTrack].s3url | trustUrl}}"><br></audio>
       </div>
+      <legend>Add a User to {{project.name}}</legend>
+      <select ng-model="chosenUser">
+        <option ng-repeat="user in users">{{user.name}}<input type="text" value="{{chosenUser}}"></option>
+          <md-button ng-click="addProject(userToAdd)"></md-button>
+      </select>
+      <md-button ng-click="addProject(chosenUser)"> Add {{chosenUser}} to project</md-button>
+      <!-- <select ng-model="chosenUser" ng-options="name as user.name for user in users"></select> -->
+      {{chosenUser}}
       </div>
     </div>
   </div>
