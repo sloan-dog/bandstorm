@@ -52,7 +52,17 @@
     $http.post('/api/user/addToProject/'+ userId + '/' + projectId)
     .success(function(data){
       $scope.addProjectResponse = data;
-      alert('you added'+data.name+'to this project')
+
+      alert = $mdDialog.alert({
+        title: 'You added '+data.name+' to this project',
+        // content: 'This is an example of how easy dialogs can be!',
+        ok: 'Close'
+      });
+      $mdDialog
+        .show( alert )
+        .finally(function() {
+          alert = undefined;
+        });
 
     })
   }
