@@ -61,6 +61,18 @@ BandStormApp.controller('AuthCtrl', ['$scope','$mdDialog','$http','$location','U
       email:newUser.email,
       password:newUser.password
     }).success(function(data){
+      UserService.login(newUser.email, newUser.password, function(err,data){
+        if (err) {
+          console.log(err);
+          alert('Something terrible has happened.')
+        } else if (data) {
+          console.log(data)
+          $scope.closeModal();
+        } else {
+          console.log(data);
+          alert('Unable to Kenny.')
+        }
+      });
       console.log(data);
       callback(null,data);
     }).error(console.log);
