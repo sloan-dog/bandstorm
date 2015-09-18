@@ -1,6 +1,6 @@
 console.log('Angular Init')
 
-var BandStormApp = angular.module('BandStormApp', ['bootstrap.fileField','ngMaterial','ngRoute','ngAnimate','angularFileUpload']);
+var BandStormApp = angular.module('BandStormApp', ['bootstrap.fileField','material.chatWindow','ngMaterial','ngRoute','ngAnimate','angularFileUpload']);
 
 BandStormApp.run(['UserService', function(UserService){
   console.log('BandStorm init');

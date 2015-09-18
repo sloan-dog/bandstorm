@@ -35,12 +35,12 @@
     <!-- Plain view for user logged in. -->
     <div ng-hide="!currentUser" class="well home-view-outer btn-info active">
       <div class="text-center well home-view-inner">
-        <h1>Welcome back, {{currentUser.name}}</h1>
+        <h1>Welcome back, {{currentUser.name}}.</h1>
         <div class="well btn-info active">
         <h2>What would you like to do?</h2>
         <hr>
-        <a class="no-link-decoration" href="/projects/{{currentUser.id}}"><md-button class="btn-info btn"><i class="glyphicon glyphicon-folder-open"></i><br>View my Projects</md-button></a> |
-        <a class="no-link-decoration" href="/project/new"><md-button class="btn-info btn"><i class="glyphicon glyphicon-plus"></i><br>Make a new project</md-button></a> |
+        <a class="no-link-decoration" href="/projects/{{currentUser.id}}"><md-button class="btn-info btn"><i class="glyphicon glyphicon-folder-open"></i><br>View my Projects</md-button></a>
+        <a class="no-link-decoration" href="/project/new"><md-button class="btn-info btn"><i class="glyphicon glyphicon-plus"></i><br>New Project</md-button></a>
         <a class="no-link-decoration"><md-button class="btn-info btn"><i class="glyphicon glyphicon-bullhorn"></i><br>Chat with friends</md-button></a>
         </div>
       </div>

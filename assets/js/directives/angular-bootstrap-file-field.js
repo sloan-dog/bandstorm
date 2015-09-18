@@ -7,7 +7,7 @@
  * License: MIT
  */
 
-angular.module('bootstrap.fileField',[])
+angular.module('bootstrap.fileField',['ngMaterial'])
 .directive('fileField', function() {
   return {
     require:'ngModel',
@@ -42,7 +42,7 @@ angular.module('bootstrap.fileField',[])
             fileField[0].click()
         });
     },
-    template:'<button type="button"><ng-transclude></ng-transclude><input type="file" style="display:none"></button>',
+    template:'<a class="btn-info btn text-center active"><ng-transclude></ng-transclude><input type="file" style="display:none"></a>',
     replace:true,
     transclude:true
   };

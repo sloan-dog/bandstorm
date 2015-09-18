@@ -1,11 +1,17 @@
 *{
-
   -webkit-touch-callout: none;
    -webkit-user-select: none;
    -khtml-user-select: none;
    -moz-user-select: none;
    -ms-user-select: none;
    user-select: none;
+}
+body{
+  background-image: url('http://i.imgur.com/bCurUbJ.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  /*background-color: black;*/
+  background-size: auto 120%;
 }
 .brand{
   font-size: 2em;
@@ -34,7 +40,7 @@ body > div > ng-view > div > div.col-md-3 > div > div > ul{
   width: auto;
   margin:0;
   padding:0;
-  overflow: scroll;
+  /*overflow: scroll;*/
   animation: fadeInLeft .3s;
 }
 .projects-view-inner{
@@ -46,7 +52,7 @@ body > div > ng-view > div > div.col-md-3 > div > div > ul{
   max-height:100%;
   margin:0;
   padding:0;
-  animation: bounceInUp .6s;
+  animation: zoomInUp .6s;
 
 }
 .file-view-inner{
@@ -67,7 +73,6 @@ body > div > ng-view > div > div.col-md-3 > div > div > ul{
   text-decoration: none;
   color: white;
 }
-
 .home-view-inner{
   height:auto;
   margin:0;
@@ -84,22 +89,14 @@ body > div > ng-view > div > div.col-md-3 > div > div > ul{
 }
 .shower{
   animation: jello .3s, fadeIn .6s;
-
 }
 .nav{
   margin-bottom: 15px;
   padding: 2px;
   animation: zoomInDown 1s, fadeIn 1s;
-
 }
 .info-well{
   font-size: 1.2em;
-}
-body{
-  background-image: url('http://images.wisegeek.com/audio-mixer-knobs.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 110% auto;
 }
 .opaque{
   opacity: 0.5;
@@ -111,13 +108,48 @@ body{
   animation: rollIn .5s;
 }
 .add-file{
-  border: dotted rgba(0,0,0,0.5) 2px;
-  width: 8%;
-  /*height: 80%;*/
+  /*border: dotted rgba(0,0,0,0.5) 2px;*/
+
 }
 
+@media (max-width: 550px) {
+  .logo-text{
+    display: none;
+  }
+}
+.chat-user{
+  padding:5px;
+  border-radius: 10px;
+}
+.chat-list{
+  padding: 0;
+  margin: 0;
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    /*width: 90%;*/
+    transition:all .5s;
+  /*width: 50%;*/
 
+}
 
+.chat-list{
+  list-style: none;
+  height: 200px;
+  overflow: hidden;
+  overflow-y: scroll;
+  padding-bottom: 30px ;
+}
 
+.chat-window .chat-list li{
+  list-style: none !important;
+}
 
+.chat-window .chat-list li:nth-child(even){
+  background: #DDDDDD !important;
+}
+.hr-chat{
+  margin: 10px !important;
+}
 
